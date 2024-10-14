@@ -16,6 +16,9 @@ class VideoScrollableView extends StatelessWidget {
       itemBuilder: (context, index) {
         final VideoPost videoPost = videos[index];
 
+        final String url = videoPost.videoUrl;
+        print('videoPost');
+        print('index $url');
         return Stack(
           children: [
             SizedBox.expand(
