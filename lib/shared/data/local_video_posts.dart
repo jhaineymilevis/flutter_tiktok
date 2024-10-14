@@ -46,5 +46,5 @@ List<Map<String, dynamic>> videoPosts = [
     'videoUrl': 'assets/videos/8.mp4',
     'likes': 342,
     'views': 3332,
-  },
+  }
 ];
