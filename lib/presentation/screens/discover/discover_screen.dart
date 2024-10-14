@@ -1,16 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:toktik/config/theme/app_theme.dart';
+import 'package:toktik/main.dart';
+import 'package:provider/provider.dart';
+import 'package:toktik/presentation/providers/discover_provider.dart';
+import 'package:toktik/presentation/widgets/shared/video_scrollable_view.dart';
 
 class DiscoverScreen extends StatelessWidget {
   const DiscoverScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "TokTik",
-      debugShowCheckedModeBanner: false,
-      theme: AppTheme().getTheme(),
-      home: const DiscoverScreen(),
+    final discoverProvider = context.watch<DiscoverProvider>();
+
+    return Scaffold(
+      body: discoverProvider.initialLoading
+          ? const Center(
+              child: CircularProgressIndicator(
+                strokeWidth: 2,
+              ),
+            )
+          : VideoScrollableView(videos: discoverProvider.videos),
     );
   }
 }
