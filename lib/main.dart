@@ -24,8 +24,8 @@ class MyApp extends StatelessWidget {
         title: 'Tok Tik',
         debugShowCheckedModeBanner: false,
         theme: AppTheme().getTheme(),
-        home: Scaffold(
-          body: const DiscoverScreen(),
+        home: const Scaffold(
+          body: DiscoverScreen(),
         ),
       ),
     );

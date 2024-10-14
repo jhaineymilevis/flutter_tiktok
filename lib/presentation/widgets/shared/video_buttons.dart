@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:toktik/config/helpers/human_format.dart';
 import 'package:toktik/domain/entities/video_post.dart';
 
 class VideoButtons extends StatelessWidget {
@@ -16,7 +17,7 @@ class VideoButtons extends StatelessWidget {
           iconColor: Colors.red,
         ),
         _CusomIconButtom(
-          value: video.likes,
+          value: video.views,
           iconData: Icons.remove_red_eye,
         ),
       ],
@@ -29,7 +30,7 @@ class _CusomIconButtom extends StatelessWidget {
   final IconData iconData;
   final Color color;
   const _CusomIconButtom(
-      {super.key, required this.value, required this.iconData, iconColor})
+      {required this.value, required this.iconData, iconColor})
       : color = iconColor ?? Colors.white;
 
   @override
@@ -43,7 +44,7 @@ class _CusomIconButtom extends StatelessWidget {
               color: color,
               size: 30,
             )),
-        Text('$value')
+        Text(HumanFormat.humanReadableNumber(value))
       ],
     );
   }
